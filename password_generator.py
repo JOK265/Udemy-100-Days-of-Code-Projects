@@ -1,7 +1,8 @@
 from random import randint, shuffle
-alfabeto=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-simbolos=['!', '@', '#', '$', '%', '&', '*', '?']
-numeros=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+from string import ascii_letters, punctuation, digits
+alfabeto=ascii_letters
+simbolos=puntuation
+numeros=digits
 num_letras=int(input('Quantas letras você quer na sua senha?\n'))
 num_simbolos=int(input('Quantos símbolos você quer na sua senha?\n'))
 num_numeros=int(input('Quantos números você quer na sua senha?\n'))
