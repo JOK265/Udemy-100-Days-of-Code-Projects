@@ -1,7 +1,7 @@
 from random import randint, shuffle
 from string import ascii_letters, punctuation, digits
 alfabeto=ascii_letters
-simbolos=puntuation
+simbolos=punctuation
 numeros=digits
 num_letras=int(input('Quantas letras você quer na sua senha?\n'))
 num_simbolos=int(input('Quantos símbolos você quer na sua senha?\n'))
