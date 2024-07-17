@@ -92,8 +92,8 @@ while True:
     limpar_terminal()
     for posicao, letra in enumerate(palavra_secreta):
         if letra_digitada == letra:
-            palavra_adivinhada2.insert(posicao, letra_digitada)
-            palavra_adivinhada2.pop(posicao + 1)
+            palavra_adivinhada1.insert(posicao, letra_digitada)
+            palavra_adivinhada1.pop(posicao + 1)
             numero_acertos += 1
     if letra_digitada not in palavra_secreta:
         numero_erros += 1
