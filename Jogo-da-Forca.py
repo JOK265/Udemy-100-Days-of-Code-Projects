@@ -98,9 +98,19 @@ while True:
     if letra_digitada not in palavra_secreta:
         numero_erros += 1
     if numero_acertos == len(palavra_secreta):
+        limpar_terminal()
+        print(logo)
+        if numero_acertos>0 or numero_erros>0:
+            print(f'\nLetras digitadas: {letras_digitadas_formatadas}')
+        print(desenhos_forca[numero_erros])
         print('\nVocê venceu!')
         break
     elif numero_erros == len(desenhos_forca) - 1:
+        limpar_terminal()
+        print(logo)
+        if numero_acertos>0 or numero_erros>0:
+            print(f'\nLetras digitadas: {letras_digitadas_formatadas}')
+        print(desenhos_forca[numero_erros])
         print('\nVocê perdeu :(')
         break
 print(f'\nA palavra era: {palavra_secreta}')
