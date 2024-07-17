@@ -22,11 +22,11 @@ animais = ('formiga babuino texugo morcego urso castor camelo gato molusco cobra
            'cegonha cisne tigre sapo truta peru tartaruga doninha baleia lobo '
            'zebra ').split()
 palavra_secreta = choice(animais)
-palavra_adivinhada = []
+palavra_adivinhada1 = []
 letras_digitadas=[]
 letras_digitadas_formatadas=()
 for letra in palavra_secreta:
-    palavra_adivinhada.append('_')
+    palavra_adivinhada1.append('_')
 numero_acertos = 0
 numero_erros = 0
 desenhos_forca = ['''
@@ -84,15 +84,16 @@ while True:
     if numero_acertos>0 or numero_erros>0:
         print(f'\nLetras digitadas: {letras_digitadas_formatadas}')
     print(desenhos_forca[numero_erros])
-    print(f'\n{palavra_adivinhada}')
+    palavra_adivinhada2= ' '.join(palavra_adivinhada1)
+    print(f'\n{palavra_adivinhada2}')
     letra_digitada = input('\nDigite uma letra:\n')
     letras_digitadas.append(letra_digitada)
     letras_digitadas_formatadas='-'.join(letras_digitadas)
     limpar_terminal()
     for posicao, letra in enumerate(palavra_secreta):
         if letra_digitada == letra:
-            palavra_adivinhada.insert(posicao, letra_digitada)
-            palavra_adivinhada.pop(posicao + 1)
+            palavra_adivinhada2.insert(posicao, letra_digitada)
+            palavra_adivinhada2.pop(posicao + 1)
             numero_acertos += 1
     if letra_digitada not in palavra_secreta:
         numero_erros += 1
@@ -102,5 +103,4 @@ while True:
     elif numero_erros == len(desenhos_forca) - 1:
         print('\nVocê perdeu :(')
         break
-print(f'\n{palavra_adivinhada}')
 print(f'\nA palavra era: {palavra_secreta}')
