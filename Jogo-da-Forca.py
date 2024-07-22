@@ -79,6 +79,7 @@ desenhos_forca = ['''
  / \\  |
       |
 =========''']
+limpar_terminal()
 while True:
     print(logo)
     if numero_acertos>0 or numero_erros>0:
@@ -86,30 +87,47 @@ while True:
     print(desenhos_forca[numero_erros])
     palavra_adivinhada2= ' '.join(palavra_adivinhada1)
     print(f'\n{palavra_adivinhada2}')
-    letra_digitada = input('\nDigite uma letra:\n')
-    letras_digitadas.append(letra_digitada)
+    letra_digitada = input('\nDigite uma letra:\n').lower().strip()
+    while True:
+        if letra_digitada[0] not in letras_digitadas and letra_digitada[0].isalpha():
+            letras_digitadas.append(letra_digitada[0])
+            break
+        elif not letra_digitada[0].isalpha() or not letra_digitada:
+            limpar_terminal()
+            print(logo)
+            if numero_acertos>0 or numero_erros>0:
+                print(f'\nLetras digitadas: {letras_digitadas_formatadas}')
+            print(desenhos_forca[numero_erros])
+            print(f'\n{palavra_adivinhada2}')
+            letra_digitada = input('\nVocê digitou um caractere inválido. Por favor, digite apenas letras:\n').lower().strip()
+        elif letra_digitada[0] in letras_digitadas:
+            limpar_terminal()
+            print(logo)
+            if numero_acertos>0 or numero_erros>0:
+                print(f'\nLetras digitadas: {letras_digitadas_formatadas}')
+            print(desenhos_forca[numero_erros])
+            print(f'\n{palavra_adivinhada2}')
+            letra_digitada = input(f'\nVocê já digitou a letra "{letra_digitada[0]}".Por favor, digite outra:\n').lower().strip()
     letras_digitadas_formatadas='-'.join(letras_digitadas)
     limpar_terminal()
     for posicao, letra in enumerate(palavra_secreta):
-        if letra_digitada == letra:
-            palavra_adivinhada1.insert(posicao, letra_digitada)
+        if letra_digitada[0] == letra:
+            palavra_adivinhada1.insert(posicao, letra_digitada[0])
             palavra_adivinhada1.pop(posicao + 1)
             numero_acertos += 1
-    if letra_digitada not in palavra_secreta:
+    if letra_digitada[0] not in palavra_secreta:
         numero_erros += 1
     if numero_acertos == len(palavra_secreta):
         limpar_terminal()
         print(logo)
-        if numero_acertos>0 or numero_erros>0:
-            print(f'\nLetras digitadas: {letras_digitadas_formatadas}')
+        print(f'\nLetras digitadas: {letras_digitadas_formatadas}')
         print(desenhos_forca[numero_erros])
         print('\nVocê venceu!')
         break
     elif numero_erros == len(desenhos_forca) - 1:
         limpar_terminal()
         print(logo)
-        if numero_acertos>0 or numero_erros>0:
-            print(f'\nLetras digitadas: {letras_digitadas_formatadas}')
+        print(f'\nLetras digitadas: {letras_digitadas_formatadas}')
         print(desenhos_forca[numero_erros])
         print('\nVocê perdeu :(')
         break
