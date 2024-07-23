@@ -89,10 +89,9 @@ while True:
     print(f'\n{palavra_adivinhada2}')
     letra_digitada = input('\nDigite uma letra:\n').lower().strip()
     while True:
-        if letra_digitada[0] not in letras_digitadas and letra_digitada[0].isalpha():
-            letras_digitadas.append(letra_digitada[0])
-            break
-        elif not letra_digitada[0].isalpha() or not letra_digitada:
+        if len(letra_digitada)==0:
+            letra_digitada=' '
+        if not letra_digitada[0].isalpha() or not letra_digitada:
             limpar_terminal()
             print(logo)
             if numero_acertos>0 or numero_erros>0:
@@ -108,6 +107,9 @@ while True:
             print(desenhos_forca[numero_erros])
             print(f'\n{palavra_adivinhada2}')
             letra_digitada = input(f'\nVocê já digitou a letra "{letra_digitada[0]}".Por favor, digite outra:\n').lower().strip()
+        elif letra_digitada[0] not in letras_digitadas and letra_digitada[0].isalpha():
+            letras_digitadas.append(letra_digitada[0])
+            break
     letras_digitadas_formatadas='-'.join(letras_digitadas)
     limpar_terminal()
     for posicao, letra in enumerate(palavra_secreta):
