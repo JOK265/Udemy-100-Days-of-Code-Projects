@@ -4,7 +4,7 @@ def codificar_decodificar(frase,modulo):
         modulo-=26   
     num=0
     while num!=modulo:
-        for i in range(modulo,len(alfabeto)-1):
+        for i in range(modulo,len(alfabeto)):
             alfabeto_codificado.append(alfabeto[i])
         while num!=modulo:
             alfabeto_codificado.append(alfabeto[num])
@@ -22,12 +22,14 @@ def codificar_decodificar(frase,modulo):
         else:
             continue
 while True:
-    n1=0
+    n1=float('inf')
     alfabeto=string.ascii_lowercase
     alfabeto_codificado=[]
     frase_codificada=[]
-    while n1>2 or n1<1:
-        n1=int(input('Digite 1 para codificar, e 2 para decodificar:\n'))
+    while n1>2 or n1<0:
+        n1=int(input('Digite 1 para codificar, e 2 para decodificar(0 para sair):\n'))
+    if n1==0:
+        break
     frase_usuario=input('digite a frase:\n').lower().strip()
     funçao=int(input('digite a função:\n'))
     codificar_decodificar(frase=frase_usuario,modulo=funçao)
