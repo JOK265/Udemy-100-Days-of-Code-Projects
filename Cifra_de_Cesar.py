@@ -21,8 +21,8 @@ def codificar_decodificar(frase,modulo):
             frase_codificada.append(letra)
         else:
             continue
-n1=0
 while True:
+    n1=0
     alfabeto=string.ascii_lowercase
     alfabeto_codificado=[]
     frase_codificada=[]
