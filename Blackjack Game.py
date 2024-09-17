@@ -11,14 +11,21 @@ def cartas_sorteadas():
 def pegar_uma_carta():
     while True:
         global soma_usuario, soma_computador
-        soma_usuario = sum(cartas_usuario)
-        soma_computador = sum(cartas_computador)
-        if soma_usuario>=21 or soma_computador>=21:
-            break
         n1 = input(f'Suas cartas são: {cartas_usuario}\nA primeira carta do computador é: {cartas_computador[0]}\nDeseja pegar mais uma carta?[S/N]\n').lower()
         if n1=='s':
             cartas_usuario.append(cartas_sorteadas())
             cartas_computador.append(cartas_sorteadas())
+            soma_usuario = sum(cartas_usuario)
+            soma_computador = sum(cartas_computador)
+            if soma_usuario>=21 or soma_computador>=21:
+                if 11 in cartas_usuario:
+                    cartas_usuario[cartas_usuario.index(11)] = 1
+                if 11 in cartas_computador:
+                    cartas_computador[cartas_computador.index(11)] = 1
+                soma_usuario = sum(cartas_usuario)
+                soma_computador = sum(cartas_computador)
+                if soma_usuario>=21 or soma_computador>=21:
+                    break
         else:
             break
 
