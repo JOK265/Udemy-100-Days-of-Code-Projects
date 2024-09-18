@@ -47,4 +47,4 @@ elif soma_computador>21 or soma_usuario<=21 and soma_usuario>soma_computador:
 elif soma_usuario>21 or soma_computador<=21 and soma_computador>soma_usuario:
     print('Você perdeu :(')
 
-print(f'Suas cartas foram: {cartas_usuario}\nVocê somou um total de {final_soma_usuario} pontos\nJá as cartas do computador foram: {cartas_computador}\nQue somaram um total de {soma_computador} pontos')
+print(f'Suas cartas foram: {cartas_usuario}\nVocê somou um total de {soma_usuario} pontos\nJá as cartas do computador foram: {cartas_computador}\nQue somaram um total de {soma_computador} pontos')
