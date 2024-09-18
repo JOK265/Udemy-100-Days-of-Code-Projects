@@ -31,6 +31,7 @@ def pegar_uma_carta():
                 if soma_usuario>=21 or soma_computador>=21:
                     break
         else:
+            somar_cartas()
             break
 
 for i in range(2):
