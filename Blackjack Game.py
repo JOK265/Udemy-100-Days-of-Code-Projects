@@ -39,13 +39,11 @@ for i in range(2):
 
 pegar_uma_carta()
 
-final_soma_usuario, final_soma_computador = somar_cartas()
-
-if final_soma_usuario==final_soma_computador:
+if soma_usuario==soma_computador:
     print('Temos um empate :/')
-elif final_soma_computador>21 or final_soma_usuario<=21 and final_soma_usuario>final_soma_computador:
+elif soma_computador>21 or soma_usuario<=21 and soma_usuario>soma_computador:
     print('Você venceu!!')
-elif final_soma_usuario>21 or final_soma_computador<=21 and final_soma_computador>final_soma_usuario:
+elif soma_usuario>21 or soma_computador<=21 and soma_computador>soma_usuario:
     print('Você perdeu :(')
 
-print(f'Suas cartas foram: {cartas_usuario}\nVocê somou um total de {final_soma_usuario} pontos\nJá as cartas do computador foram: {cartas_computador}\nQue somaram um total de {final_soma_computador} pontos')
+print(f'Suas cartas foram: {cartas_usuario}\nVocê somou um total de {final_soma_usuario} pontos\nJá as cartas do computador foram: {cartas_computador}\nQue somaram um total de {soma_computador} pontos')
